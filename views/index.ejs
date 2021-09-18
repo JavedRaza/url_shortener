@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+       <div class="container">
+        <h1>URl Shortener</h1>
+        <form action="/shorturl" method="POST" class="my-4 form-inline" >
+            <label for="url" class="sr-only"> Enter URL:</label>
+            <input required type="url" name="url" id="url" placeholder="URL Enter" class="form-control mr-2 col">
+            <button type="submit" class="btn btn-success">Shrink</button>
+        </form>
+        <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>Actual URL</th>
+                    <th>Shorter url</th>
+                    <th>Clicks </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% shortUrls.forEach(function(item){ %>
+                    <tr>
+                        <td><a href="<%= item.full%>"><%= item.full%></a></td>
+                        <td><a href="<%= item.short %>"><%= item.short %></a></td>
+                        <td><%= item.clicks %></td>
+                    
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+       </div>
+    </body>
+</html>
